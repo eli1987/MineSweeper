@@ -92,9 +92,9 @@ public class Logic {
        if( getCellPos(xPos, yPos).isRevealed()) return;
         boolean isFlagged = getCellPos(xPos, yPos).isFlagClick();
 
-
         getCellPos(xPos, yPos).setFlagClick(!isFlagged);
         getCellPos(xPos, yPos).invalidate();
+        checkEnd();
 
     }
 
@@ -139,10 +139,13 @@ public class Logic {
 
                 {
                     notReaveled--;
+                    Log.e("Test Reav",notReaveled +"");
+
                 }
 
                 if (getCellPos(i, j).isFlagClick() && getCellPos(i, j).isBoom()) {
                     bombNotFound--;
+                    Log.e("Test number of Bombs",bombNotFound +"");
                 }
 
             }
@@ -164,6 +167,8 @@ public class Logic {
     }
 
     private void endGame() {
+
+
         //handle lost game
         Toast.makeText(context, "Game Lost", Toast.LENGTH_SHORT).show();
 
@@ -173,6 +178,8 @@ public class Logic {
         Intent intent = new Intent(context,EndGame.class);
 
         intent.putExtra("result", "Lost");
+
+
 
         context.startActivity(intent);
 
@@ -185,6 +192,8 @@ public class Logic {
 
             }
         }
+
+
 
     }
 }

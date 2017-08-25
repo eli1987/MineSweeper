@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
+import android.support.annotation.UiThread;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
@@ -90,10 +91,10 @@ public class Cell extends  BaseCell implements View.OnClickListener , View.OnLon
     }
 
     private void drawExplodedBomb(Canvas canvas) {
-
-        Drawable draw = ContextCompat.getDrawable(getContext(),R.drawable.boom);
+Drawable draw = ContextCompat.getDrawable(getContext(),R.drawable.boom);
         draw.setBounds(0,0,getWidth(),getHeight());
         draw.draw(canvas);
+
 
     }
 
@@ -111,6 +112,8 @@ public class Cell extends  BaseCell implements View.OnClickListener , View.OnLon
         Drawable draw = ContextCompat.getDrawable(getContext(),R.drawable.bomb);
         draw.setBounds(0,0,getWidth(),getHeight());
         draw.draw(canvas);
+
+
 
     }
 
